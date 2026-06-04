@@ -3,10 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Víctor Manzaneque | Desarrollador</title>
+    <title>Víctor Manzaneque | Analista de Ciberseguridad & Desarrollador</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hola, soy Víctor Manzaneque</h1>
-    <p>Bienvenido a mi porfolio profesional. Actualmente estoy construyendo este sitio.</p>
+
+    <!-- Contenedor principal (Layout dos columnas estilo Brittany Chiang) -->
+    <div class="contenedor-principal">
+        
+        <!-- COLUMNA IZQUIERDA: Tarjeta fija de presentación y menú (Fijo en PC) -->
+        <header class="columna-izquierda">
+            <div class="perfil-info">
+                <h1>Víctor Manzaneque</h1>
+                <h4>Analista de Ciberseguridad | Técnico IT | Desarrollador Web</h2>
+                
+                <!-- Lista de Estudios Oficiales (Sustituye al párrafo del tagline) -->
+                <ul class="lista-estudios-oficiales">
+                    <li>Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</li>
+                    <li>Técnico en Sistemas Microinformáticos y Redes (SMIR)</li>
+                </ul>
+            </div>
+            
+            <!-- Menú de navegación dinámico -->
+            <nav class="menu-navegacion">
+                <ul>
+                    <li><a href="#sobre-mi"><span class="linea-nav"></span> SOBRE MÍ</a></li>
+                    <li><a href="#trayectoria"><span class="linea-nav"></span> TRAYECTORIA</a></li>
+                    <li><a href="#proyectos"><span class="linea-nav"></span> PROYECTOS</a></li>
+                </ul>
+            </nav>
+
+            <!-- Enlaces rápidos a redes profesionales -->
+            <div class="redes-sociales">
+                <a href="www.linkedin.com/in/victor-manzaneque-86b640290" target="_blank" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icono-red">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com" target="_blank" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icono-red">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- COLUMNA DERECHA: Contenido con Scroll fluido -->
+        <main class="columna-derecha">
+            
+            <!-- SECCIÓN: SOBRE MÍ -->
+            <section id="sobre-mi" class="seccion-contenido">
+                <h3 class="titulo-seccion-movil">SOBRE MÍ</h3>
+                <p>
+                    Combino una sólida base técnica en <strong>sistemas y redes</strong> con una especialización profunda en <strong>ciberseguridad</strong> y desarrollo de software. Mi enfoque abarca desde la administración de sistemas operativos críticos hasta la operación de herramientas SIEM y la respuesta ante incidentes[cite: 1].
+                </p>
+                <p>
+                    Cuento con una larga trayectoria en las <strong>Fuerzas Armadas (Ejército de Tierra)</strong>, una etapa exigente que ha forjado mi disciplina, persistencia y capacidad de resolución de problemas bajo presión[cite: 1]. Estas cualidades las aplico directamente al ámbito tecnológico: rigor absoluto en el despliegue de infraestructuras, compromiso con la seguridad y una mentalidad proactiva para anticipar y mitigar riesgos técnicos[cite: 1].
+                </p>
+                <p>
+                    Mi objetivo es integrar esta experiencia en defensa y seguridad con el desarrollo de soluciones robustas, preferiblemente en modalidades remotas o híbridas[cite: 1].
+                </p>
+            </section>
+
+            <!-- SECCIÓN: TRAYECTORIA Y EXPERIENCIA -->
+            <section id="trayectoria" class="seccion-contenido">
+                <h3 class="titulo-seccion-movil">TRAYECTORIA</h3>
+                
+                <!-- PUESTO 1: EJÉRCITO DE TIERRA -->
+                <div class="bloque-experiencia">
+                    <div class="experiencia-contenedor">
+                        <span class="experiencia-fecha">2006 — Pres.</span>
+                        <div class="experiencia-info">
+                            <h4>Técnico IT<span class="empresa">Ejército de Tierra</span></h4>
+                            <p>
+                                Despliegue, mantenimiento y configuración avanzada de infraestructura de redes, hardware y soluciones de software. Administración de SO empresariales y tácticos (Windows/Linux).
+                            </p>
+                            <ul class="lista-tags">
+                                <li>Sistemas TI</li>
+                                <li>Infraestructura de Redes</li>
+                                <li>Herramientas SIEM</li>
+                                <li>Windows & Linux</li>
+                                <li>Ciberseguridad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PUESTO 2: CAPTABILIDADES -->
+                <div class="bloque-experiencia">
+                    <div class="experiencia-contenedor">
+                        <span class="experiencia-fecha">2024</span>
+                        <div class="experiencia-info">
+                            <h4>Desarrollador Web (Prácticas) — <span class="empresa">Captabilidades</span></h4>
+                            <p>
+                                Mantenimiento y configuración de servidores web empresariales, maquetación y edición de entornos digitales corporativos, y desarrollo e implementación de soluciones integradas bajo el ecosistema de WordPress[cite: 1].
+                            </p>
+                            <ul class="lista-tags">
+                                <li>Desarrollo Web</li>
+                                <li>Servidores Web</li>
+                                <li>WordPress</li>
+                                <li>Django</li>
+                                <li>Html/CSS/Js</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PUESTO 3: ORDENADORES OCASIÓN -->
+                <div class="bloque-experiencia">
+                    <div class="experiencia-contenedor">
+                        <span class="experiencia-fecha">2022</span>
+                        <div class="experiencia-info">
+                            <h4>Técnico IT (Prácticas) — <span class="empresa">Ordenadores Ocasión</span></h4>
+                            <p>
+                                Diagnóstico, reparación y mantenimiento físico y lógico de equipos[cite: 1]. Instalación y configuración de una amplia variedad de sistemas operativos (Windows, macOS, Ubuntu, Windows Server y Ubuntu Server) junto con el montaje y puesta a punto de arquitecturas de red local[cite: 1].
+                            </p>
+                            <ul class="lista-tags">
+                                <li>Soporte Hardware/Software</li>
+                                <li>Mantenimiento de equipos</li>
+                                <li>Resolución de incidencias</li>
+                                <li>Sistemas Operativos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBSECCIÓN: CERTIFICACIONES (Puramente profesionales) -->
+                <div class="contenedor-certificaciones">
+                    <h4>Certificaciones Profesionales</h4>
+                    <ul class="lista-certificaciones">
+                        <li><strong>Tecnologías de la Ciberseguridad</strong> <span class="cert-meta">INCIBE & UNED (2025)</span></li>
+                        <li><strong>Certificación Profesional de Ciberseguridad</strong> <span class="cert-meta">Google & Coursera (2024)</span></li>
+                        <li><strong>Hacking Ético con Python & Pentesting</strong> <span class="cert-meta">Udemy (2024 / 2026)</span></li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <!-- SECCIÓN: PROYECTOS -->
+            <section id="proyectos" class="seccion-contenido">
+                <h3 class="titulo-seccion-movil">PROYECTOS</h3>
+                <div class="bloque-proyecto">
+                    <p>Actualmente optimizando repositorios de desarrollo (Backend Java/Spring Boot e integraciones API)[cite: 1]. Los proyectos serán añadidos paulatinamente en los próximos días[cite: 1].</p>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
 </body>
 </html>
