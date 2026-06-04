@@ -13,29 +13,26 @@
         
         <!-- COLUMNA IZQUIERDA: Tarjeta fija de presentación y menú (Fijo en PC) -->
         <header class="columna-izquierda">
-            <div class="perfil-info">
-                <h1>Víctor Manzaneque</h1>
-                <h4>Analista de Ciberseguridad | Técnico IT | Desarrollador Web</h2>
+            <!-- Bloque superior agrupado para un diseño compacto -->
+            <div class="grupo-superior-izq">
+                <div class="perfil-info">
+                    <h1>Víctor Manzaneque</h1>
+                    <h2>Analista de Ciberseguridad | Técnico IT | Desarrollador Web</h2>
+                </div>
                 
-                <!-- Lista de Estudios Oficiales (Sustituye al párrafo del tagline) -->
-                <ul class="lista-estudios-oficiales">
-                    <li>Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</li>
-                    <li>Técnico en Sistemas Microinformáticos y Redes (SMIR)</li>
-                </ul>
+                <!-- Menú de navegación dinámico -->
+                <nav class="menu-navegacion">
+                    <ul>
+                        <li><a href="#sobre-mi"><span class="linea-nav"></span> SOBRE MÍ</a></li>
+                        <li><a href="#trayectoria"><span class="linea-nav"></span> TRAYECTORIA</a></li>
+                        <li><a href="#proyectos"><span class="linea-nav"></span> PROYECTOS</a></li>
+                    </ul>
+                </nav>
             </div>
-            
-            <!-- Menú de navegación dinámico -->
-            <nav class="menu-navegacion">
-                <ul>
-                    <li><a href="#sobre-mi"><span class="linea-nav"></span> SOBRE MÍ</a></li>
-                    <li><a href="#trayectoria"><span class="linea-nav"></span> TRAYECTORIA</a></li>
-                    <li><a href="#proyectos"><span class="linea-nav"></span> PROYECTOS</a></li>
-                </ul>
-            </nav>
 
-            <!-- Enlaces rápidos a redes profesionales -->
+            <!-- Enlaces rápidos a redes profesionales (Abajo del todo) -->
             <div class="redes-sociales">
-                <a href="www.linkedin.com/in/victor-manzaneque-86b640290" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/victor-manzaneque-86b640290" target="_blank" title="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icono-red">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
@@ -48,21 +45,21 @@
             </div>
         </header>
 
-        <!-- COLUMNA DERECHA: Contenido con Scroll fluido -->
+        <!-- COLUMNA DERECHA: Contenido (Sin scroll si el texto es corto) -->
         <main class="columna-derecha">
             
             <!-- SECCIÓN: SOBRE MÍ -->
             <section id="sobre-mi" class="seccion-contenido">
                 <h3 class="titulo-seccion-movil">SOBRE MÍ</h3>
-                <p>
-                    Combino una sólida base técnica en <strong>sistemas y redes</strong> con una especialización profunda en <strong>ciberseguridad</strong> y desarrollo de software. Mi enfoque abarca desde la administración de sistemas operativos críticos hasta la operación de herramientas SIEM y la respuesta ante incidentes[cite: 1].
-                </p>
-                <p>
-                    Cuento con una larga trayectoria en las <strong>Fuerzas Armadas (Ejército de Tierra)</strong>, una etapa exigente que ha forjado mi disciplina, persistencia y capacidad de resolución de problemas bajo presión[cite: 1]. Estas cualidades las aplico directamente al ámbito tecnológico: rigor absoluto en el despliegue de infraestructuras, compromiso con la seguridad y una mentalidad proactiva para anticipar y mitigar riesgos técnicos[cite: 1].
-                </p>
-                <p>
-                    Mi objetivo es integrar esta experiencia en defensa y seguridad con el desarrollo de soluciones robustas, preferiblemente en modalidades remotas o híbridas[cite: 1].
-                </p>
+                    <p>
+                        Cuento con una larga trayectoria en las <strong>Fuerzas Armadas (Ejército de Tierra) desde el año 2006</strong>, una etapa que ha forjado mi disciplina, persistencia y capacidad de resolución de problemas bajo presión. Durante este tiempo, he desarrollado mi actividad ligado directamente a los <strong>servicios IT</strong>, gestionando infraestructuras, despliegue de redes y mantenimiento de sistemas.
+                    </p>
+                    <p>
+                        Para respaldar y expandir esta experiencia práctica, dispongo de las titulaciones oficiales de <strong>Técnico en Sistemas Microinformáticos y Redes (SMIR)</strong> y <strong>Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</strong>. Esta sólida base académica me capacita tanto para la administración de entornos de sistemas complejos como para el desarrollo de soluciones de software robustas.
+                    </p>
+                    <p>
+                        Estas son las cualidades y conocimientos que aplico hoy al ámbito tecnológico: un compromiso absoluto con la seguridad, rigor en el despliegue de infraestructuras y una mentalidad proactiva para anticipar riesgos[cite: 1]. Mi objetivo actual es aportar esta polivalencia técnica y disciplina al sector privado, enfocado en oportunidades de sistemas o desarrollo, preferiblemente en modalidades remotas o híbridas[cite: 1].
+                    </p>
             </section>
 
             <!-- SECCIÓN: TRAYECTORIA Y EXPERIENCIA -->
@@ -74,9 +71,9 @@
                     <div class="experiencia-contenedor">
                         <span class="experiencia-fecha">2006 — Pres.</span>
                         <div class="experiencia-info">
-                            <h4>Técnico IT<span class="empresa">Ejército de Tierra</span></h4>
+                            <h4>Técnico IT — <span class="empresa">Ejército de Tierra</span></h4>
                             <p>
-                                Despliegue, mantenimiento y configuración avanzada de infraestructura de redes, hardware y soluciones de software. Administración de SO empresariales y tácticos (Windows/Linux).
+                                Despliegue, mantenimiento y configuración avanzada de infraestructura de redes, hardware y soluciones de software[cite: 1]. Administración de SO empresariales y tácticos (Windows/Linux)[cite: 1].
                             </p>
                             <ul class="lista-tags">
                                 <li>Sistemas TI</li>

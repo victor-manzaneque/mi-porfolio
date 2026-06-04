@@ -2,17 +2,16 @@
    1. VARIABLES Y CONFIGURACIÓN BASE
    ========================================================================== */
 :root {
-    /* Paleta oscura inspirada en entornos de desarrollo y webs premium */
-    --color-fondo: #0f172a;       /* Azul pizarra muy oscuro (Slate 900) */
-    --color-tarjeta: #1e293b;     /* Azul grisáceo para destacar bloques (Slate 800) */
-    --color-texto-principal: #f8fafc; /* Blanco suave para títulos (Slate 50) */
-    --color-texto-secundario: #94a3b8; /* Gris azulado para párrafos (Slate 400) */
-    --color-acento: #64ffda;      /* Verde turquesa eléctrico para destacar enlaces */
+    --color-fondo: #0f172a;       
+    --color-tarjeta: #1e293b;     
+    --color-texto-principal: #f8fafc; 
+    --color-texto-secundario: #94a3b8; 
+    --color-acento: #64ffda;      
     --color-acento-hover: #48d1b2; 
 }
 
 html {
-    scroll-behavior: smooth; /* Hace que el scroll al pulsar el menú sea fluido */
+    scroll-behavior: smooth; 
 }
 
 body {
@@ -36,29 +35,29 @@ h1, h2, h3, h4 {
    ========================================================================== */
 .contenedor-principal {
     display: grid;
-    grid-template-columns: 1fr; /* Por defecto en móviles es una sola columna */
+    grid-template-columns: 1fr; 
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 48px 24px;
 }
 
-/* Cuando la pantalla es de ordenador (mínimo 1024px de ancho) activamos las dos columnas */
 @media (min-width: 1024px) {
     .contenedor-principal {
-        grid-template-columns: 45% 55%; /* 45% fija a la izquierda, 55% scroll a la derecha */
+        grid-template-columns: 45% 55%; 
         gap: 24px;
         padding: 0 80px;
     }
 
     .columna-izquierda {
-        position: sticky; /* Se queda clavada en la pantalla */
+        position: sticky; 
         top: 0;
-        max-height: 100vh;
+        height: 100vh; /* Fija la altura exacta de la ventana */
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-between; /* Mantiene redes abajo y el resto arriba */
         padding: 96px 0;
+        box-sizing: border-box;
     }
 
     .columna-derecha {
@@ -69,22 +68,23 @@ h1, h2, h3, h4 {
 /* ==========================================================================
    3. COLUMNA IZQUIERDA: PERFIL Y MENÚ FIJO
    ========================================================================== */
+.grupo-superior-izq {
+    display: flex;
+    flex-direction: column;
+}
+
 .perfil-info h1 {
     font-size: 2.5rem;
     letter-spacing: -0.025em;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .perfil-info h2 {
-    font-size: 1.25rem;
-    color: var(--color-texto-principal);
-    font-weight: 500;
-    margin-bottom: 16px;
-}
-
-.perfil-info .tagline {
-    font-size: 1rem;
-    max-width: 320px;
+    font-size: 1.1rem;
+    color: var(--color-texto-secundario);
+    font-weight: 400;
+    margin-bottom: 48px; /* <-- Subimos este valor para empujar el menú hacia abajo */
+    line-height: 1.5;
 }
 
 /* Ocultar títulos de sección repetidos en versión de escritorio */
@@ -105,19 +105,19 @@ h1, h2, h3, h4 {
 
 @media (min-width: 1024px) {
     .titulo-seccion-movil {
-        display: none; /* En PC no hace falta el título repetido, ya guía el menú */
+        display: none; 
     }
 }
 
-/* Menú de navegación estilo Brittany (Línea que se expande) */
+/* Menú de navegación estilo línea expandible */
 .menu-navegacion {
-    display: none; /* Oculto en móvil */
+    display: none; 
 }
 
 @media (min-width: 1024px) {
     .menu-navegacion {
         display: block;
-        margin-top: 64px;
+        margin-top: 48px;
     }
     
     .menu-navegacion ul {
@@ -149,7 +149,6 @@ h1, h2, h3, h4 {
         transition: all 0.3s ease;
     }
     
-    /* Efecto hover: la línea se alarga y el texto se ilumina */
     .menu-navegacion a:hover {
         color: var(--color-texto-principal);
     }
@@ -160,37 +159,18 @@ h1, h2, h3, h4 {
     }
 }
 
-/* Lista de Estudios Oficiales (Debajo del subtítulo de la columna izquierda) */
-.lista-estudios-oficiales {
-    list-style-type: disc; /* Activa el punto clásico a la izquierda */
-    padding-left: 20px;    /* Margen izquierdo para alinear los puntos perfectamente */
-    margin: 24px 0 0 0;
-    max-width: 360px;
-}
-
-.lista-estudios-oficiales li {
-    font-size: 0.95rem;
-    color: var(--color-texto-secundario);
-    line-height: 1.5;
-    margin-bottom: 12px;
-}
-
-/* Efecto sutil: resalta un poco el texto de los estudios al pasar el ratón */
-.lista-estudios-oficiales li:hover {
-    color: var(--color-texto-principal);
-    transition: color 0.3s ease;
-}
-
 /* ==========================================================================
    4. COLUMNA DERECHA: SECCIONES DE CONTENIDO
    ========================================================================== */
 .seccion-contenido {
-    margin-bottom: 64px;
+    margin-bottom: 48px;
+    scroll-margin-top: 96px;
 }
 
 @media (min-width: 1024px) {
     .seccion-contenido {
-        margin-bottom: 96px;
+        margin-bottom: 64px;
+        scroll-margin-top: 96px;
     }
 }
 
@@ -198,31 +178,28 @@ h1, h2, h3, h4 {
     margin-bottom: 16px;
 }
 
-/* Estilo para destacar palabras clave dentro del texto */
 .seccion-contenido strong {
     color: var(--color-texto-principal);
     font-weight: 600;
 }
 
 /* ==========================================================================
-   5. BLOQUES DE CONTENIDO (Tarjetas interactivas de experiencia/proyectos)
+   5. BLOQUES DE CONTENIDO (Tarjetas interactivas)
    ========================================================================== */
 .bloque-experiencia, .bloque-proyecto {
     background-color: transparent;
-    padding: 24px;
+    padding: 20px;
     border-radius: 8px;
     transition: all 0.3s ease;
     border: 1px solid transparent;
 }
 
-/* Efecto sutil de tarjeta iluminada al pasar el ratón */
 .bloque-experiencia:hover, .bloque-proyecto:hover {
     background-color: rgba(30, 41, 59, 0.4);
     border-color: rgba(255, 255, 255, 0.05);
     transform: translateY(-2px);
 }
 
-/* Estilos específicos para la estructura interna de la experiencia */
 .experiencia-contenedor {
     display: grid;
     grid-template-columns: 1fr;
@@ -251,7 +228,6 @@ h1, h2, h3, h4 {
     transition: color 0.3s ease;
 }
 
-/* Al pasar el ratón por la tarjeta, el título del puesto se ilumina en turquesa */
 .bloque-experiencia:hover h4 {
     color: var(--color-acento);
 }
@@ -261,25 +237,23 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
-/* Etiquetas/Tags de tecnologías y habilidades */
 .lista-tags {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin: 16px 0 0 0;
+    margin: 12px 0 0 0;
     gap: 8px;
 }
 
 .lista-tags li {
-    background-color: rgba(100, 255, 218, 0.1); /* Fondo turquesa muy transparente */
+    background-color: rgba(100, 255, 218, 0.1); 
     color: var(--color-acento);
     font-size: 0.75rem;
     font-weight: 500;
     padding: 4px 12px;
-    border-radius: 9999px; /* Forma de píldora */
+    border-radius: 9999px; 
 }
-
 
 /* ==========================================================================
    6. ICONOS DE REDES SOCIALES (Columna Izquierda)
@@ -287,7 +261,7 @@ h1, h2, h3, h4 {
 .redes-sociales {
     display: flex;
     gap: 20px;
-    margin-top: 32px;
+    margin-top: 24px;
 }
 
 .icono-red {
@@ -303,16 +277,16 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   7. SECCIÓN CERTIFICACIONES (Estilos específicos)
+   7. SECCIÓN CERTIFICACIONES
    ========================================================================== */
 .contenedor-certificaciones {
-    margin-top: 48px;
-    padding: 0 24px;
+    margin-top: 32px;
+    padding: 0 20px;
 }
 
 .contenedor-certificaciones h4 {
     font-size: 1.1rem;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     border-left: 2px solid var(--color-acento);
     padding-left: 10px;
 }
@@ -325,7 +299,7 @@ h1, h2, h3, h4 {
 
 .lista-certificaciones li {
     font-size: 0.9rem;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     color: var(--color-texto-principal);
     display: flex;
     flex-direction: column;
