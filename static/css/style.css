@@ -11,6 +11,8 @@
     /* NUEVAS: Para el efecto hover en el tema oscuro por defecto */
     --color-tarjeta-hover: rgba(30, 41, 59, 0.4);
     --color-borde-hover: rgba(255, 255, 255, 0.05);
+    /* NUEVA: Tinta la foto con un tono azulado/turquesa cibernético muy sutil */
+    --filtro-perfil: grayscale(0.4) contrast(1.1) brightness(0.9);
 }
 
 /* TEMA ALTERNATIVO 1: ESMERALDA CLARO */
@@ -24,19 +26,23 @@
     /* NUEVAS: Gris muy suave y sutil para que el tema claro se vea espectacular al pasar el ratón */
     --color-tarjeta-hover: rgba(15, 23, 42, 0.04);
     --color-borde-hover: rgba(15, 23, 42, 0.08);
+    /* NUEVA: En modo claro se queda 100% natural, sin ningún filtro */
+    --filtro-perfil: none;
 }
 
 /* TEMA ALTERNATIVO 2: HACKER / AMBER */
-[data-tema="hacker"] {
-    --color-fondo: #0a0a0a;       
-    --color-tarjeta: #141414;     
-    --color-texto-principal: #00ff00; 
-    --color-texto-secundario: #a3a3a3; 
-    --color-acento: #38bdf8;      
-    --color-acento-hover: #0ea5e9; 
+[data-tema="mocha"] {
+    --color-fondo: #1a1615;       
+    --color-tarjeta: #26201e;     
+    --color-texto-principal: #f5f0ed; 
+    --color-texto-secundario: #9c928e; 
+    --color-acento: #e07a5f;      
+    --color-acento-hover: #c96449; 
     /* NUEVAS: Un verde oscuro translúcido estilo consola hacker total */
-    --color-tarjeta-hover: rgba(0, 255, 0, 0.04);
-    --color-borde-hover: rgba(0, 255, 0, 0.15);
+    --color-tarjeta-hover: rgba(224, 122, 95, 0.04);
+    --color-borde-hover: rgba(224, 122, 95, 0.15);
+    /* NUEVA: Tinta la foto con un aire cálido otoñal (moka/terracota) precioso */
+    --filtro-perfil: sepia(0.5) hue-rotate(-15deg) saturate(1.1) contrast(1.05);
 }
 
 /* Control estricto del ancho de los elementos para evitar desbordamiento horizontal */
@@ -116,6 +122,7 @@ h1, h2, h3, h4 {
     }
 }
 
+
 /* ==========================================================================
    3. COLUMNA IZQUIERDA: CABECERA Y FORMACIÓN
    ========================================================================== */
@@ -142,28 +149,48 @@ h1, h2, h3, h4 {
     }
 }
 
+/* CONTENEDOR PADRE: Maneja el tamaño, la forma orgánica del borde y blinda el zoom */
 .contenedor-avatar {
     flex-shrink: 0;
-    width: 120px; 
-    height: 120px;
+    width: 124px; /* Ajuste milimétrico de seguridad para evitar recortes */
+    height: 124px;
+    background-color: var(--color-tarjeta);
+    border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
+    
+    /* EL BORDE SE QUEDA AQUÍ: Totalmente a salvo del filtro de color */
+    border: 2px solid var(--color-acento);
+    
+    /* CRUCIAL: Recorta la imagen interna para que se adapte perfectamente a la forma sin desbordar */
+    overflow: hidden; 
+    
+    transition: all 0.5s ease-in-out;
 }
 
+/* IMAGEN HIJA: Solo ella recibe el filtro dinámico del tema seleccionado */
 .foto-perfil {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-color: var(--color-tarjeta);
-    border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
-    border: 2px solid var(--color-acento);
-    transition: all 0.5s ease-in-out;
+    display: block;
+    
+    /* El filtro ya no contamina al borde ni cambia sus tonos a rosa */
+    filter: var(--filtro-perfil);
+    transition: filter 0.5s ease-in-out;
 }
 
-.foto-perfil:hover {
+/* COMPORTAMIENTO INTERACTIVO (Inmune a roturas por zoom a 1.3) */
+.contenedor-avatar:hover {
     border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
-    transform: scale(1.03);
-    box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+    border-color: var(--color-acento);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.25);
 }
 
+/* Al pasar el ratón sobre el avatar, la foto recupera su color original de forma fluida */
+.contenedor-avatar:hover .foto-perfil {
+    filter: none;
+}
+
+/* COMPONENTES DE TEXTO E INFORMACIÓN (Mantenidos perfectamente intactos) */
 .textos-perfil {
     flex: 1;
 }
@@ -249,6 +276,7 @@ h1, h2, h3, h4 {
         display: none; 
     }
 }
+
 
 /* ==========================================================================
    4. ENLACES INTERACTIVOS Y REDES (COMPORTAMIENTO FLUIDO CON MARGIN-TOP)
@@ -534,9 +562,9 @@ h1, h2, h3, h4 {
     flex-shrink: 0;
 }
 
-.color-muestra.defecto { background-color: #64ffda; border: 1px solid #0f172a; }
-.color-muestra.claro { background-color: #0ea5e9; border: 1px solid #cbd5e1; }
-.color-muestra.hacker { background-color: #00ff00; border: 1px solid #000; }
+.color-muestra.defecto { background-color: #0f172a; border: 1px solid #0ea5e9; }
+.color-muestra.claro { background-color: #ffffff; border: 1px solid #0ea5e9; }
+.color-muestra.mocha { background-color: #c96449; border: 1px solid #26201e; }
 
 /* Control del tema claro */
 [data-tema="claro"] .boton-tema-principal,
