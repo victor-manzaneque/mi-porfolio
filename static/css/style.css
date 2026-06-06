@@ -8,26 +8,35 @@
     --color-texto-secundario: #94a3b8; 
     --color-acento: #64ffda;      
     --color-acento-hover: #48d1b2; 
+    /* NUEVAS: Para el efecto hover en el tema oscuro por defecto */
+    --color-tarjeta-hover: rgba(30, 41, 59, 0.4);
+    --color-borde-hover: rgba(255, 255, 255, 0.05);
 }
 
-/* TEMA ALTERNATIVO 1: ESMERALDA CLARO (Limpio y corporativo) */
+/* TEMA ALTERNATIVO 1: ESMERALDA CLARO */
 [data-tema="claro"] {
     --color-fondo: #f8fafc;       
     --color-tarjeta: #ffffff;     
     --color-texto-principal: #0f172a; 
     --color-texto-secundario: #475569; 
-    --color-acento: #0ea5e9; /* Azul cielo / esmeralda visual */     
+    --color-acento: #0ea5e9;           
     --color-acento-hover: #0284c7; 
+    /* NUEVAS: Gris muy suave y sutil para que el tema claro se vea espectacular al pasar el ratón */
+    --color-tarjeta-hover: rgba(15, 23, 42, 0.04);
+    --color-borde-hover: rgba(15, 23, 42, 0.08);
 }
 
-/* TEMA ALTERNATIVO 2: HACKER / AMBER (Estilo consola clásica) */
+/* TEMA ALTERNATIVO 2: HACKER / AMBER */
 [data-tema="hacker"] {
     --color-fondo: #0a0a0a;       
     --color-tarjeta: #141414;     
-    --color-texto-principal: #00ff00; /* Verde fósforo */
+    --color-texto-principal: #00ff00; 
     --color-texto-secundario: #a3a3a3; 
     --color-acento: #38bdf8;      
     --color-acento-hover: #0ea5e9; 
+    /* NUEVAS: Un verde oscuro translúcido estilo consola hacker total */
+    --color-tarjeta-hover: rgba(0, 255, 0, 0.04);
+    --color-borde-hover: rgba(0, 255, 0, 0.15);
 }
 
 /* Control estricto del ancho de los elementos para evitar desbordamiento horizontal */
@@ -313,6 +322,7 @@ h1, h2, h3, h4 {
     transform: translateY(-2px);
 }
 
+
 /* ==========================================================================
    5. COLUMNA DERECHA: SECCIONES DE CONTENIDO LIMPIAS
    ========================================================================== */
@@ -346,8 +356,9 @@ h1, h2, h3, h4 {
 }
 
 .bloque-experiencia:hover, .bloque-proyecto:hover {
-    background-color: rgba(30, 41, 59, 0.4);
-    border-color: rgba(255, 255, 255, 0.05);
+    /* AQUÍ EL CAMBIO: Ahora son 100% dinámicas y dependen del tema seleccionado */
+    background-color: var(--color-tarjeta-hover);
+    border-color: var(--color-borde-hover);
     transform: translateY(-2px);
 }
 
@@ -419,6 +430,14 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end; /* Alinea la lista hacia la derecha */
+    
+    /* CRUCIAL: El contenedor en reposo es invisible para el ratón y permite clicar lo que haya detrás */
+    pointer-events: none; 
+}
+
+/* El contenedor solo reacciona al hover si el ratón está encima de algo activo (el botón o la lista abierta) */
+.conmutador-tema-flotante:hover {
+    pointer-events: auto;
 }
 
 /* Botón principal adaptado a pantallas táctiles/móviles (más sutil) */
@@ -435,6 +454,9 @@ h1, h2, h3, h4 {
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* El botón siempre debe reaccionar al ratón */
+    pointer-events: auto; 
 }
 
 .icono-paleta {
@@ -443,7 +465,7 @@ h1, h2, h3, h4 {
     transition: transform 0.5s ease;
 }
 
-/* Comportamiento Hover del contenedor */
+/* Animación de rotación: Ahora se activa perfectamente al pasar por encima del conmutador activo */
 .conmutador-tema-flotante:hover .boton-tema-principal {
     transform: scale(1.08);
     border-color: var(--color-acento);
@@ -470,14 +492,17 @@ h1, h2, h3, h4 {
     visibility: hidden;
     transform: translateY(10px) scale(0.95);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
+    
+    /* Desactivada en reposo */
+    pointer-events: none; 
 }
 
+/* SOLUCCIÓN AL RECORRIDO: La lista permanece abierta con total estabilidad al pasar el ratón por el contenedor */
 .conmutador-tema-flotante:hover .lista-opciones-tema {
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
-    pointer-events: auto;
+    pointer-events: auto; /* Permite interactuar con los botones de opciones */
 }
 
 .opcion-tema {
@@ -553,4 +578,3 @@ h1, h2, h3, h4 {
         font-size: 0.85rem;
     }
 }
-
