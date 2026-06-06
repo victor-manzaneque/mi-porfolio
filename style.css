@@ -10,6 +10,26 @@
     --color-acento-hover: #48d1b2; 
 }
 
+/* TEMA ALTERNATIVO 1: ESMERALDA CLARO (Limpio y corporativo) */
+[data-tema="claro"] {
+    --color-fondo: #f8fafc;       
+    --color-tarjeta: #ffffff;     
+    --color-texto-principal: #0f172a; 
+    --color-texto-secundario: #475569; 
+    --color-acento: #0ea5e9; /* Azul cielo / esmeralda visual */     
+    --color-acento-hover: #0284c7; 
+}
+
+/* TEMA ALTERNATIVO 2: HACKER / AMBER (Estilo consola clásica) */
+[data-tema="hacker"] {
+    --color-fondo: #0a0a0a;       
+    --color-tarjeta: #141414;     
+    --color-texto-principal: #00ff00; /* Verde fósforo */
+    --color-texto-secundario: #a3a3a3; 
+    --color-acento: #38bdf8;      
+    --color-acento-hover: #0ea5e9; 
+}
+
 /* Control estricto del ancho de los elementos para evitar desbordamiento horizontal */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -29,6 +49,8 @@ body {
     padding: 0;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    /* Suavizado en el cambio de colores */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4 {
@@ -382,5 +404,143 @@ h1, h2, h3, h4 {
     font-weight: 500;
     padding: 4px 12px;
     border-radius: 9999px; 
+}
+
+
+/* ==========================================================================
+   6. CONMUTADOR FLOTANTE DE TEMAS (ESTILOS COMODÍN)
+   ========================================================================== */
+.conmutador-tema-flotante {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column-reverse; /* Hace que la lista crezca hacia ARRIBA del botón */
+    align-items: flex-start;
+}
+
+/* El botón circular principal con la paleta */
+.boton-tema-principal {
+    background-color: var(--color-tarjeta);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-acento);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icono-paleta {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.5s ease;
+}
+
+/* Animación de rotación en el botón principal al pasar por encima del contenedor */
+.conmutador-tema-flotante:hover .boton-tema-principal {
+    transform: scale(1.1);
+    border-color: var(--color-acento);
+    box-shadow: 0 4px 25px rgba(100, 255, 218, 0.2);
+}
+
+.conmutador-tema-flotante:hover .icono-paleta {
+    transform: rotate(360deg);
+}
+
+/* Lista de opciones (oculta e invisible por defecto) */
+.lista-opciones-tema {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0; /* Margen inferior para separarse del botón */
+    background-color: var(--color-tarjeta);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: 190px;
+    overflow: hidden;
+    
+    /* Efecto de desaparición y desplazamiento suave */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none; /* Evita clics fantasmas mientras esté oculto */
+}
+
+/* Al hacer HOVER en el contenedor, desplegamos la lista hacia arriba */
+.conmutador-tema-flotante:hover .lista-opciones-tema {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.lista-opciones-tema li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Cada uno de los botones de opción dentro de la lista */
+.opcion-tema {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 12px 16px;
+    text-align: left;
+    color: var(--color-texto-secundario);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+}
+
+.opcion-tema:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--color-texto-principal);
+}
+
+/* Círculos de previsualización de color (muestras) */
+.color-muestra {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Colores específicos de las muestras según el tema */
+.color-muestra.defecto {
+    background-color: #64ffda;
+    border: 1px solid #0f172a;
+}
+
+.color-muestra.claro {
+    background-color: #0ea5e9;
+    border: 1px solid #cbd5e1;
+}
+
+.color-muestra.hacker {
+    background-color: #00ff00;
+    border: 1px solid #000;
+}
+
+/* Adaptación del diseño claro para las muestras y bordes del menú cuando esté activo */
+[data-tema="claro"] .boton-tema-principal,
+[data-tema="claro"] .lista-opciones-tema {
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+[data-tema="claro"] .opcion-tema:hover {
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
