@@ -449,6 +449,76 @@ h1, h2, h3, h4 {
 }
 
 
+/* --- Ajustes específicos para el bloque de proyectos --- */
+.proyecto-contenedor {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto en móvil: una sola columna vertical */
+    gap: 16px;
+}
+
+@media (min-width: 640px) {
+    .proyecto-contenedor {
+        grid-template-columns: 26% 74%; /* En escritorio: imagen a la izquierda, contenido a la derecha */
+        gap: 20px;
+    }
+}
+
+/* Contenedor y comportamiento de la imagen miniatura */
+.proyecto-col-izq {
+    width: 100%;
+}
+
+.proyecto-imagen {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Mantiene la proporción clásica de captura de pantalla */
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.05); /* Un borde sutil para que no se fusione con el fondo */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Al pasar el ratón por el bloque, la imagen reacciona sutilmente */
+.bloque-proyecto:hover .proyecto-imagen {
+    border-color: var(--color-acento);
+    transform: scale(1.02);
+}
+
+/* Tipografía y enlaces del proyecto */
+.proyecto-info h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.enlace-proyecto {
+    color: var(--color-texto-principal);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px; /* Espacio entre el texto y la flecha */
+    transition: color 0.3s ease;
+}
+
+/* Estilo para la flecha SVG inclinada */
+.flecha-enlace {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--color-texto-secundario);
+}
+
+/* Efecto Brittany Chiang: Al pasar el ratón por el bloque, el título se ilumina y la flecha se desplaza en diagonal */
+.bloque-proyecto:hover .enlace-proyecto {
+    color: var(--color-acento);
+}
+
+.bloque-proyecto:hover .flecha-enlace {
+    color: var(--color-acento);
+    transform: translate(2px, -2px); /* Movimiento diagonal hacia arriba a la derecha */
+}
+
+
 /* ==========================================================================
    6. CONMUTADOR FLOTANTE DE TEMAS (ESTILOS COMODÍN & RESPONSIVE)
    ========================================================================== */
